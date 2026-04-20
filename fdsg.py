@@ -37,24 +37,22 @@
 #         print(f"{self.owner} has ${self.__balance}")
 
 class Hero:
-    def __init__(self, name, money, inventory):
+    def __init__(self, name,balance,inventory):
         self.name = name
-        self.money = money
+        self.balance = balance 
         self.inventory = inventory
-    def buy(self, item):
-         self.inventory.append(item)
-class BankAccount:
-    def __init__(self, owner, balance):
-        self.owner = owner
-        self.__balance = balance  
+    def buy(self, item, price):
+        self.inventory.append(item)
+        self.balance -= price
+        print(self.inventory)
     def deposit(self, amount):
         self.__balance += amount
 
-       
-         
+    def show_balance(self):
 
-bob = Hero("bob",100,["bow"])
-bob = BankAccount("bob",100)
-bob.buy({"title": "sword", "attack": 34})
-bob.deposit += ("bob", -10)
+        print(f"{self.owner} has ${self.__balance}")
+
+bob = Hero ("bob",100,["slipper"] )
+bob.buy({"title": "Sword", "atk": 34}, 10)
+print(bob.__dict__)
 
