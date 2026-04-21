@@ -52,9 +52,19 @@ class Hero:
 
         print(f"{self.owner} has ${self.__balance}")
 class pet:
-    def _init
+    def __init__(self, happiness):
+        self.happiness = happiness
+    def play(self,happy):
+        self.happiness += happy
+    
 
-bob = Hero ("bob",100,["slipper"] )
+
+
+bob = Hero ("bob",100,["slipper"])
 bob.buy({"title": "Sword", "atk": 34}, 10)
 print(bob.__dict__)
+dog = pet (100)
+dog.play(10)
+print(dog.__dict__)
+
 
