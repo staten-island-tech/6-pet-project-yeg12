@@ -51,6 +51,8 @@ class Hero:
     def show_balance(self):
 
         print(f"{self.owner} has ${self.__balance}")
+class pet:
+    def _init
 
 bob = Hero ("bob",100,["slipper"] )
 bob.buy({"title": "Sword", "atk": 34}, 10)
