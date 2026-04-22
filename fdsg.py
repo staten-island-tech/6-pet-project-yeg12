@@ -51,11 +51,23 @@ class Hero:
     def show_balance(self):
 
         print(f"{self.owner} has ${self.__balance}")
-class pet:
-    def __init__(self, happiness):
-        self.happiness = happiness
-    def play(self,happy):
-        self.happiness += happy
+class Pet:
+    def __init__(self, name, happiness=50):
+        self.name = name
+        self.__happiness = happiness
+
+    def play(self, amount=10):
+        self.__happiness += amount
+        print(f"{self.name} played! Happiness: {self.__happiness}")
+
+    def show_status(self):
+        if self.__happiness >= 80:
+            mood = " very happy"
+        elif self.__happiness >= 50:
+            mood = "happy "
+        else:
+            mood = "sad "
+        print(f"{self.name} is {mood} (happiness: {self.__happiness})")
     
 
 
@@ -63,7 +75,7 @@ class pet:
 bob = Hero ("bob",100,["slipper"])
 bob.buy({"title": "Sword", "atk": 34}, 10)
 print(bob.__dict__)
-dog = pet (100)
+dog = pet("rex",100)
 dog.play(10)
 print(dog.__dict__)
 
