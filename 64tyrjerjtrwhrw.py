@@ -1,8 +1,8 @@
 class Pet:
     def __init__(self, name,health,happiness, attack ):
         self.name = name
-        self.__happiness = happiness
         self.health = health
+        self.__happiness = happiness
         self.attack = attack
 
     def play(self, amount):
@@ -20,21 +20,28 @@ class Pet:
         self.health -= attacked
         print(self.health)
     def restart (self, health):
-        if self.health == 0:
+        if self.__happiness == 0:
             print("hahahhah, hwo did he died, lmao, this so so sad, ur such a smart guy")
-class prey:
-    def _init_  (self,name, health, defence):
+class Prey:
+    def __init__  (self,name, health):
         self.name = name
         self.health = health
-        self.defence = defence
+
     def attacked(self,damage):
-        self.attackattack = damage
-        defence -= damage
-        if defence == 0:
-            health -= defence
-        if health == 0:
+        self.attack = damage
+        self.health -= damage
+        if self.health == 0:
             print("prey is dead")
+
+    def status(self):
+        if self.health == 0:
+            print("dead",self.health)
+        if self.health >= 1:
+            print("You know I'm still standing better than I ever did Looking like a true survivor, feeling like a little kid I'm still standing after all this time ",self.health)
     
-rex = Pet("rex",100,50,10)
-trex = prey("big T",10000,100)
-trex.attacked(10)
+nuhun = Pet("pet",100,50,10)
+nuhun.show_status()
+litlle=Prey("name",12)
+litlle.attacked()
+litlle.status()
+
