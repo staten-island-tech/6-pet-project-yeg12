@@ -1,10 +1,11 @@
 class Pet:
-    def __init__(self, name,health,happiness, attack ):
-        self.name = name
+    def __init__(self, name,health,happiness, attack,clean,hunger ):
+        self.name = name,
         self.health = health
         self.__happiness = happiness
         self.attack = attack
-
+        self.clean = clean
+        self.hunger = hunger
     def play(self, amount):
         self.__happiness += amount
         print("he played")
@@ -19,9 +20,22 @@ class Pet:
     def attack (self,attacked):
         self.health -= attacked
         print(self.health)
-    def restart (self, health):
-        if self.__happiness == 0:
-            print("hahahhah, hwo did he died, lmao, this so so sad, ur such a smart guy")
+    def clean(self):
+        self.clean += 10
+    def eat(self):
+        food_tpye = input("what type of food Options apple-10 meat-100 eggs-50 vegatables -0")
+        if food_tpye == "apple":
+            self.hunger += 10
+        if food_tpye == "meat":
+            self.hunger += 100
+        if food_tpye == "egg":
+            self.hunger += 50
+        if food_tpye == "vegatable":
+            self.hunger += 0
+            print("Are u tryna kill him?")
+
+
+
 class Prey:
     def __init__  (self,name, health):
         self.name = name
@@ -38,10 +52,14 @@ class Prey:
             print("dead",self.health)
         if self.health >= 1:
             print("You know I'm still standing better than I ever did Looking like a true survivor, feeling like a little kid I'm still standing after all this time ",self.health)
-    
-nuhun = Pet("pet",100,50,10)
-nuhun.show_status()
-litlle=Prey("name",12)
-litlle.attacked()
-litlle.status()
+user = False
+while user == False:
+    Petname = input("what name is ur peyt")
+    print (Petname)
+    Petname = Pet(Petname,100,50,10,10,50)
+    action = input (" waht u wanana do Options play, clean and eat ")
+    if action =="play":
+        Petname.play(10)
+        Petname.show_status()
+
 
