@@ -1,26 +1,17 @@
+import random
 class Pet:
-    def __init__(self, name,health,happiness, attack,clean,hunger ):
+    def __init__(self, name,health,happiness,clean,hunger ):
         self.name = name,
         self.health = health
-        self.__happiness = happiness
-        self.attack = attack
+        self.happiness = happiness
         self.clean = clean
         self.hunger = hunger
     def play(self, amount):
         self.__happiness += amount
         print("he played")
-
     def show_status(self):
-        if self.__happiness >= 80:
-            print( " very happy")
-        elif self.__happiness >= 50:
-            print ("mid ")
-        else:
-            print ("very very very very very sad ")
-    def attack (self,attacked):
-        self.health -= attacked
-        print(self.health)
-    def clean(self):
+        print(self.health,self.__happiness,self.clean, self.hunger)
+    def bath(self):
         self.clean += 10
     def eat(self):
         food_tpye = input("what type of food Options apple-10 meat-100 eggs-50 vegatables -0")
@@ -33,33 +24,56 @@ class Pet:
         if food_tpye == "vegatable":
             self.hunger += 0
             print("Are u tryna kill him?")
+    def drop(self):
+        if random.randit(1,3) == "3":
+            self.__happiness -= 10
+            self.clean -= 10
+            self.hunger -= 10
 
 
 
-class Prey:
-    def __init__  (self,name, health):
-        self.name = name
-        self.health = health
-
-    def attacked(self,damage):
-        self.attack = damage
-        self.health -= damage
-        if self.health == 0:
-            print("prey is dead")
-
-    def status(self):
-        if self.health == 0:
-            print("dead",self.health)
-        if self.health >= 1:
-            print("You know I'm still standing better than I ever did Looking like a true survivor, feeling like a little kid I'm still standing after all this time ",self.health)
-user = False
-while user == False:
-    Petname = input("what name is ur peyt")
-    print (Petname)
-    Petname = Pet(Petname,100,50,10,10,50)
-    action = input (" waht u wanana do Options play, clean and eat ")
-    if action =="play":
-        Petname.play(10)
-        Petname.show_status()
+# Petname = input("what name is ur peyt")
+# user = False
+# while user == False:
+#     print (Petname)
+#     Petname = Pet(Petname,100,50,10,10,50)
+#     action = input (" waht u wanana do Options play, bath and eat ")
+#     if action =="play":
+#         Petname.play(10)
+#         Petname.show_status()
+#     if action == "bath":
+#         Petname.bath()
+#         Petname.show_status()
+#     if action == "eat":
+#         Petname.eat()
+#         Petname.show_status()
 
 
+
+
+Petname = input("what name is ur peyt")
+pet = Pet(Petname,100,50,50,50)
+X = False
+Emergency = False
+while X == False:
+    if pet.happiness < 10:
+        print("ur pet is unhappy")
+        Emergency = True
+    if pet.clean < 10:
+        print("so dirty")
+        Emergency = True
+    if pet.hunger < 10:
+        print("hungry")
+        Emergency = True
+    if Emergency == True:
+        Required_Action = input (" waht u wanana do based on  the issue options play, bath and eat ")
+        if Required_Action =="play":
+            Petname.play(10)
+            Petname.show_status()
+        if Required_Action == "bath":
+            Petname.bath()
+            Petname.show_status()
+        if Required_Action == "eat":
+            Petname.eat()
+            Petname.show_status()
+    
