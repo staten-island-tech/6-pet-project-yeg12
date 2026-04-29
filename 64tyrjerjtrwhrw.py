@@ -8,7 +8,6 @@ class Pet:
         self.hunger = hunger
     def play(self, amount):
         self.happiness += amount
-        print("he played")
     def show_status(self):
         print(self.health,self.happiness,self.clean, self.hunger)
     def bath(self):
@@ -46,10 +45,11 @@ class Pet:
 
 
     def injuried(self):
-        if random.randint(1,3) == "3":
+        fse = input("choose anumber bewtween 1-3    ")
+        if fse == "3":
             print("fell down")
             self.health += -10
-        elif random.randint(1,3) == "2":
+        elif fse == "2":
             print("got bit")
             self.health += -20
         else:
@@ -118,7 +118,7 @@ while pet.health > 0:
         pet.eat()
     else:
         print("hahah missclickjed so u get punished")
-        pet.injuried
+        pet.injuried()
     pet.show_status()
     
     
